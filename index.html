@@ -56,8 +56,11 @@
           More Research
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="https://ursulalujun.github.io/isbench.github.io/">
             IS-Bench
+          </a>
+          <a class="navbar-item" href="https://ursulalujun.github.io/X-Boundary-page/">
+            X-Boundary
           </a>
         </div>
       </div>
@@ -142,8 +145,6 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-      
       <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="2" data-slides-to-scroll="1">
         
         <div class="item">
@@ -241,23 +242,24 @@
         <h2 class="title is-3">Methodology</h2>
         <div class="content has-text-justified">
           <p>
-            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
-          </p>
-          <img src="./static/images/overall_paradigm_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
-          <p class="is-size-6">
-            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
-            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
-            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
+           To this end, we introduce Geometrically-Constrained Agent (GCA), a training-free agentic paradigm for geometrically-constrained spatial reasoning.
+           As shown in Figure 2, this strategy leverages a formal task constraint, $C_\text{task}$, to decouple the reasoning process into two stages:
           </p>
           <p>
+            1. Task Formalization. The VLM, acting as a semantic analyst, translates the ambiguous query and visual data into the formal, verifiable task constraint $\mathcal{C}_\text{task}$. This stage defines what to solve, establishing immutable sub-constraints: a \textbf{reference frame constraint} and an \textbf{objective constraint}.
+            2. Constrained Geometric Computation. The VLM then, acting as a task solver, generates and executes tool calls to compute the final answer, operating strictly within the deterministic bounds defined by $\gC_\text{task}$.
+          </p>
+          <p>
+            This two-stage decoupling directly bridges the semantic-to-geometric gap.
+          </p>
+          <img src="./static/images/overall_paradigm_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
+          <p>
             The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
+            We define (C<sub>task</sub>) as a tuple containing two key sub-constraints: 
+            1. <strong>Reference Frame Constraint</strong> that defines the coordinate system for answering the query
+            2. <strong>Objective Constraint</strong> that specify the objective to be measured within that frame.
           </p>
           <img src="./static/images/ref_frame_page.jpg" alt="Overall Paradigm of GCA" style="width:80%; height:auto;">
-          <p class="is-size-6">
-            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
-            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
-            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
-          </p>
         </div>
       </div>
     </div>
@@ -275,27 +277,25 @@
           </p>
           
           <div class="columns is-centered">
-            <div class="column">
-              <img src="./static/images/formalize_ablation_page.jpg" alt="Left Image Description" style="width:90%; height:auto;">
-            </div>
+            <p>
+              GCA proves to be a robust architectural solution, achieving an average of <strong>37% relative improvement</strong> across all tested models. 
+              Notably, the magnitude of enhancement correlates with the base VLM's agentic proficiency, unlocking up to 49% gain on stronger models like Gemini-2.5-Pro
+              <strong>Impact of Task Constraint</strong> Simply prompting the VLM or using unconstrained tools ("Tool (Prompt)") yields negligible improvements. 
+              In contrast, our <strong>GCA (Ours)</strong> delivers a substantial performance boost.
+            </p>
             <div class="column">
               <img src="./static/images/generalizability_ablation_page.jpg" alt="Right Image Description" style="width:100%; height:auto;">
             </div>
+            <div class="column">
+              <img src="./static/images/formalize_ablation_page.jpg" alt="Left Image Description" style="width:90%; height:auto;">
+            </div>
           </div>
-          <p class="is-size-6">
-            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
-            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
-            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
-          </p>
           <p>
-            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
+            <strong>Error Attribution and Failure Modes</strong> A key advantage of GCA is its interpretable reasoning pathway. We conduct a detailed error attribution analysis to identify bottlenecks. 
+            Results indicate that <strong>30%</strong> of errors stem from the initial <strong>Task Formalization</strong> stage (e.g., understanding complex semantics or implicit constraints), while the remaining <strong>70%</strong> occur during the <strong>Geometric Computation</strong> stage (e.g., perception noise in 3D reconstruction or coding logic errors)[cite: 357, 361, 366].
           </p>
           <img src="./static/images/failure_case_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
-          <p class="is-size-6">
-            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
-            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
-            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
-          </p>
+          
         </div>
       </div>
     </div>
