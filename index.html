@@ -246,7 +246,7 @@
            As shown in Figure 2, this strategy leverages a formal task constraint, C<sub>task</sub>, to decouple the reasoning process into two stages:
           </p>
           <p>
-            1. <strong>Task Formalization.</strong>strong> The VLM, acting as a semantic analyst, translates the ambiguous query and visual data into the formal, verifiable task constraint C<sub>task</sub>. This stage defines what to solve, establishing immutable sub-constraints: a reference frame constraint and an objective constraint. <br>
+            1. <strong>Task Formalization.</strong> The VLM, acting as a semantic analyst, translates the ambiguous query and visual data into the formal, verifiable task constraint C<sub>task</sub>. This stage defines what to solve, establishing immutable sub-constraints: a reference frame constraint and an objective constraint. <br>
             2. <strong>Constrained Geometric Computation.</strong>strong> The VLM then, acting as a task solver, generates and executes tool calls to compute the final answer, operating strictly within the deterministic bounds defined by C<sub>task</sub>.
           </p>
           <p>
@@ -255,7 +255,7 @@
           <img src="./static/images/overall_paradigm_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
           <p>
             The core of GCA is the introduction of a Formal Task Constraint (C<sub>task</sub>) that serves as a deterministic bridge between semantics and geometry.
-            We define (C<sub>task</sub>) as a tuple containing two key sub-constraints: 
+            We define (C<sub>task</sub>) as a tuple containing two key sub-constraints: <br>
             1. <strong>Reference Frame Constraint</strong> that defines the coordinate system for answering the query. <br>
             2. <strong>Objective Constraint</strong> that specifies the objective to be measured within that frame.
           </p>
@@ -274,7 +274,7 @@
         <div class="content has-text-justified">
           <p>
             <strong>Performance across VLMs</strong> GCA proves to be a robust architectural solution, achieving an average of <strong>37%</strong> relative improvement across all tested models. 
-            Notably, the magnitude of enhancement correlates with the base VLM's agentic proficiency, unlocking up to <strong>49%</strong> gain on stronger models like Gemini-2.5-Pro
+            Notably, the magnitude of enhancement correlates with the base VLM's agentic proficiency, unlocking up to <strong>49%</strong> gain on stronger models like Gemini-2.5-Pro. <br>
             <strong>Impact of Task Constraint</strong> Simply prompting the VLM or using unconstrained tools ("Tool (Prompt)") yields negligible improvements. 
             In contrast, our GCA delivers a substantial performance boost.
           </p>
