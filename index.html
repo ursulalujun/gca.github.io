@@ -77,7 +77,7 @@
             <span class="author-block">
               <a href="#">Zeren Chen</a><sup>1,2*</sup>,</span>
             <span class="author-block">
-              <a href="#">Xiaoya Lu</a><sup>3,2*</sup>,</span>
+              <a href="https://github.com/ursulalujun">Xiaoya Lu</a><sup>2,3*</sup>,</span>
             <span class="author-block">
               <a href="#">Zhijie Zheng</a><sup>1,2</sup>,
             </span>
@@ -91,7 +91,7 @@
               <a href="#">Yijin Zhou</a><sup>2,3,4</sup>,
             </span>
             <span class="author-block">
-              <a href="#">Jing Shao</a><sup>2†</sup>,
+              <a href="https://amandajshao.github.io">Jing Shao</a><sup>2†</sup>,
             </span>
             <span class="author-block">
               <a href="#">Bohan Zhuang</a><sup>5†</sup>,
@@ -130,7 +130,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/teaser.jpg" alt="Semantic-Geometric Gap vs Geometrically-Constrained Spatial Reasoning" style="width:100%; height:auto;">
+      <img src="./static/images/teaser_page.jpg" alt="Semantic-Geometric Gap vs Geometrically-Constrained Spatial Reasoning" style="width:100%; height:auto;">
       <h2 class="subtitle has-text-centered">
         <strong>Geometrically-Constrained Agent (GCA)</strong> resolves the semantic-to-geometric gap by decoupling the reasoning process into 
         Task Formalization and Constrained Geometric Computation.
@@ -231,16 +231,6 @@
         </div>
       </div>
     </div>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    </div>
 </section>
 
 
@@ -253,7 +243,54 @@
           <p>
             The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
           </p>
-          <img src="./static/images/architecture.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
+          <img src="./static/images/overall_paradigm_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
+          <p class="is-size-6">
+            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
+            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
+            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
+          </p>
+          <p>
+            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
+          </p>
+          <img src="./static/images/ref_frame_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
+          <p class="is-size-6">
+            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
+            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
+            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Experiment</h2>
+        <div class="content has-text-justified">
+          <p>
+            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
+          </p>
+          
+          <div class="columns is-centered">
+            <div class="column">
+              <img src="./static/images/formalize_ablation_page.jpg" alt="Left Image Description" style="width:100%; height:auto;">
+            </div>
+            <div class="column">
+              <img src="./static/images/generalizability_ablation_page.jpg" alt="Right Image Description" style="width:100%; height:auto;">
+            </div>
+          </div>
+          <p class="is-size-6">
+            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
+            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
+            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
+          </p>
+          <p>
+            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
+          </p>
+          <img src="./static/images/failure_case_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
           <p class="is-size-6">
             <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
             The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
