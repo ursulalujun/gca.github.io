@@ -227,7 +227,7 @@
           </p>
           <p>
             This geometrically-constrained reasoning strategy successfully resolves the semantic-to-geometric gap, yielding a robust and verifiable reasoning pathway. 
-            Comprehensive experiments demonstrate that GCA achieves SOTA performance on multiple spatial reasoning benchmarks, surpassing existing methods by ~27%.
+            Comprehensive experiments demonstrate that GCA achieves SOTA performance on multiple spatial reasoning benchmarks, surpassing existing methods by <strong>~27%</strong>.
           </p>
         </div>
       </div>
@@ -243,29 +243,29 @@
         <div class="content has-text-justified">
           <p>
            To this end, we introduce Geometrically-Constrained Agent (GCA), a training-free agentic paradigm for geometrically-constrained spatial reasoning.
-           As shown in Figure 2, this strategy leverages a formal task constraint, $C_\text{task}$, to decouple the reasoning process into two stages:
+           As shown in Figure 2, this strategy leverages a formal task constraint, C<sub>task</sub>, to decouple the reasoning process into two stages:
           </p>
           <p>
-            1. Task Formalization. The VLM, acting as a semantic analyst, translates the ambiguous query and visual data into the formal, verifiable task constraint $\mathcal{C}_\text{task}$. This stage defines what to solve, establishing immutable sub-constraints: a \textbf{reference frame constraint} and an \textbf{objective constraint}.
-            2. Constrained Geometric Computation. The VLM then, acting as a task solver, generates and executes tool calls to compute the final answer, operating strictly within the deterministic bounds defined by $\gC_\text{task}$.
+            1. <strong>Task Formalization.</strong>strong> The VLM, acting as a semantic analyst, translates the ambiguous query and visual data into the formal, verifiable task constraint C<sub>task</sub>. This stage defines what to solve, establishing immutable sub-constraints: a reference frame constraint and an objective constraint. <br>
+            2. <strong>Constrained Geometric Computation.</strong>strong> The VLM then, acting as a task solver, generates and executes tool calls to compute the final answer, operating strictly within the deterministic bounds defined by C<sub>task</sub>.
           </p>
           <p>
             This two-stage decoupling directly bridges the semantic-to-geometric gap.
           </p>
           <img src="./static/images/overall_paradigm_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
           <p>
-            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
+            The core of GCA is the introduction of a Formal Task Constraint (C<sub>task</sub>) that serves as a deterministic bridge between semantics and geometry.
             We define (C<sub>task</sub>) as a tuple containing two key sub-constraints: 
-            1. <strong>Reference Frame Constraint</strong> that defines the coordinate system for answering the query
-            2. <strong>Objective Constraint</strong> that specify the objective to be measured within that frame.
+            1. <strong>Reference Frame Constraint</strong> that defines the coordinate system for answering the query. <br>
+            2. <strong>Objective Constraint</strong> that specifies the objective to be measured within that frame.
           </p>
-          <img src="./static/images/ref_frame_page.jpg" alt="Overall Paradigm of GCA" style="width:80%; height:auto;">
+          <img src="./static/images/ref_frame_page.jpg" alt="Overall Paradigm of GCA" style="display: block; margin: 0 auto; width: 75%; height: auto;">
         </div>
       </div>
     </div>
   </div>
 </section>
-
+  
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -273,16 +273,13 @@
         <h2 class="title is-3">Experiment</h2>
         <div class="content has-text-justified">
           <p>
-            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
+            <strong>Performance across VLMs</strong> GCA proves to be a robust architectural solution, achieving an average of <strong>37%</strong> relative improvement across all tested models. 
+            Notably, the magnitude of enhancement correlates with the base VLM's agentic proficiency, unlocking up to <strong>49%</strong> gain on stronger models like Gemini-2.5-Pro
+            <strong>Impact of Task Constraint</strong> Simply prompting the VLM or using unconstrained tools ("Tool (Prompt)") yields negligible improvements. 
+            In contrast, our GCA delivers a substantial performance boost.
           </p>
-          
+    
           <div class="columns is-centered">
-            <p>
-              GCA proves to be a robust architectural solution, achieving an average of <strong>37% relative improvement</strong> across all tested models. 
-              Notably, the magnitude of enhancement correlates with the base VLM's agentic proficiency, unlocking up to 49% gain on stronger models like Gemini-2.5-Pro
-              <strong>Impact of Task Constraint</strong> Simply prompting the VLM or using unconstrained tools ("Tool (Prompt)") yields negligible improvements. 
-              In contrast, our <strong>GCA (Ours)</strong> delivers a substantial performance boost.
-            </p>
             <div class="column">
               <img src="./static/images/generalizability_ablation_page.jpg" alt="Right Image Description" style="width:100%; height:auto;">
             </div>
@@ -292,7 +289,7 @@
           </div>
           <p>
             <strong>Error Attribution and Failure Modes</strong> A key advantage of GCA is its interpretable reasoning pathway. We conduct a detailed error attribution analysis to identify bottlenecks. 
-            Results indicate that <strong>30%</strong> of errors stem from the initial <strong>Task Formalization</strong> stage (e.g., understanding complex semantics or implicit constraints), while the remaining <strong>70%</strong> occur during the <strong>Geometric Computation</strong> stage (e.g., perception noise in 3D reconstruction or coding logic errors)[cite: 357, 361, 366].
+            Results indicate that <strong>30%</strong> of errors stem from the initial Task Formalization stage, while the remaining <strong>70%</strong> occur during the Geometric Computation stage.
           </p>
           <img src="./static/images/failure_case_page.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
           
