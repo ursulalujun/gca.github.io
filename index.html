@@ -3,22 +3,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Geometrically-Constrained Agent (GCA): A training-free agentic paradigm that resolves the semantic-to-geometric gap in Spatial Reasoning.">
-  <meta name="keywords" content="Spatial Reasoning, VLM, Agent, Geometric Constraint, Robotics, Computer Vision">
+        content="Geometrically-Constrained Agent (GCA): Bridging the semantic-to-geometric gap in spatial reasoning via formal task constraints.">
+  <meta name="keywords" content="Spatial Reasoning, VLM, Robotics, Geometric Constraints, GCA">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Geometrically-Constrained Agent for Spatial Reasoning</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+    .title.publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.2rem;
+    }
+    .hero-body {
+        padding-bottom: 1rem;
+    }
+    .teaser .hero-body {
+        padding-top: 0;
+        padding-bottom: 2rem;
+    }
+    /* ReKep style: Clean buttons */
+    .button.is-dark.is-rounded {
+        background-color: #363636;
+        border-color: transparent;
+        color: #fff;
+    }
+    .button.is-dark.is-rounded:hover {
+        background-color: #4a4a4a;
+    }
+    /* Section Headers */
+    .section-title {
+        font-family: 'Google Sans', sans-serif;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    /* Abstract Box */
+    .abstract-box {
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    /* Image Captions */
+    .caption {
+        font-size: 0.9rem;
+        color: #4a4a4a;
+        margin-top: 0.5rem;
+        text-align: justify;
+    }
+    /* Results Grid */
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    @media screen and (max-width: 768px) {
+        .results-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    .card-image img {
+        object-fit: contain;
+    }
+    .box-shadow {
+        box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    }
+  </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -28,124 +94,58 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="#">
-            IS-Bench
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Geometrically-Constrained Agent for Spatial Reasoning</h1>
+          
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#">Zeren Chen</a><sup>1,2*</sup>,</span>
-            <span class="author-block">
-              <a href="#">Xiaoya Lu</a><sup>3,2*</sup>,</span>
-            <span class="author-block">
-              <a href="#">Zhijie Zheng</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Pengrui Li</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Lehan He</a><sup>1,4</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Yijin Zhou</a><sup>2,3,4</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Jing Shao</a><sup>2†</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Bohan Zhuang</a><sup>5†</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Lu Sheng</a><sup>1†</sup>
-            </span>
+            <span class="author-block"><a href="#">Zeren Chen</a><sup>1,2*</sup>,</span>
+            <span class="author-block"><a href="#">Xiaoya Lu</a><sup>2,3*</sup>,</span>
+            <span class="author-block"><a href="#">Zhijie Zheng</a><sup>1,2</sup>,</span>
+            <span class="author-block"><a href="#">Pengrui Li</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#">Lehan He</a><sup>1,4</sup>,</span><br>
+            <span class="author-block"><a href="#">Yijin Zhou</a><sup>2,3,4</sup>,</span>
+            <span class="author-block"><a href="#">Jing Shao</a><sup>2†</sup>,</span>
+            <span class="author-block"><a href="#">Bohan Zhuang</a><sup>5†</sup>,</span>
+            <span class="author-block"><a href="#">Lu Sheng</a><sup>1†</sup></span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>School of Software, Beihang University,</span>
+          <div class="is-size-6 publication-authors" style="margin-top: 10px; margin-bottom: 20px;">
+            <span class="author-block"><sup>1</sup>Beihang University,</span>
             <span class="author-block"><sup>2</sup>Shanghai AI Laboratory,</span>
             <span class="author-block"><sup>3</sup>Shanghai Jiao Tong University,</span><br>
             <span class="author-block"><sup>4</sup>Shanghai Innovation Institute,</span>
-            <span class="author-block"><sup>5</sup>ZIP Lab, Zhejiang University</span>
+            <span class="author-block"><sup>5</sup>Zhejiang University</span>
           </div>
 
-          <div class="is-size-6 publication-authors">
-            <span class="author-block">*Equal Contribution, †Corresponding Author</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-            </div>
-
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="arxiv_link_here" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="pdf_link_here" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="code_link_here" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="video_link_here" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-youtube"></i></span>
+                <span>Video</span>
+              </a>
+            </span>
           </div>
         </div>
       </div>
@@ -155,11 +155,10 @@
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/teaser.jpg" alt="Semantic-Geometric Gap vs Geometrically-Constrained Spatial Reasoning" style="width:100%; height:auto;">
-      <h2 class="subtitle has-text-centered">
-        <strong>Geometrically-Constrained Agent (GCA)</strong> resolves the semantic-to-geometric gap by decoupling the reasoning process into 
-        Task Formalization and Constrained Geometric Computation.
+    <div class="hero-body has-text-centered">
+      <img src="./static/images/teaser.jpg" class="box-shadow" style="width: 100%; border-radius: 10px;" alt="Teaser Figure">
+      <h2 class="subtitle has-text-centered caption">
+        <strong>Figure 1. The Semantic-Geometric Gap vs. GCA.</strong> (a) Current VLMs suffer from a lossy translation of visual information, leading to flawed spatial imagination. (b) <strong>GCA</strong> bridges this gap by decoupling reasoning into task formalization (what to solve) and constrained geometric computation (how to solve it).
       </h2>
     </div>
   </div>
@@ -169,57 +168,18 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3 section-title">Abstract</h2>
+        <div class="content has-text-justified abstract-box">
           <p>
-            Vision Language Models (VLMs) exhibit a fundamental <strong>semantic-to-geometric gap</strong> in spatial reasoning: they excel
-            at qualitative semantic inference but their reasoning operates within a lossy semantic space, misaligned with high-fidelity geometry.
-            Current paradigms fail to bridge this gap. Training-based methods suffer from an "oracle paradox,"
-            learning flawed spatial logic from imperfect oracles. Tool-integrated methods constrain the final computation but critically 
-            leave the VLM's planning process unconstrained, resulting in geometrically flawed plans.
+            Vision Language Models (VLMs) exhibit a fundamental <strong>semantic-to-geometric gap</strong> in spatial reasoning: they excel at qualitative semantic inference but their reasoning operates within a lossy semantic space, misaligned with high-fidelity geometry. Current paradigms fail to bridge this gap. Training-based methods suffer from an "oracle paradox," learning flawed spatial logic from imperfect oracles, while tool-integrated methods leave the planning process unconstrained.
           </p>
           <p>
-            In this work, we propose <strong>Geometrically-Constrained Agent (GCA)</strong>, a training-free agentic paradigm that resolves this gap by introducing
-            a formal task constraint. Specifically, we strategically decouple the VLM's role into two stages:
+            In this work, we propose <strong>Geometrically-Constrained Agent (GCA)</strong>, a training-free agentic paradigm that resolves this gap by introducing a formal task constraint. Specifically, we strategically decouple the VLM's role into two stages:
+            (1) Acting as a <strong>semantic analyst</strong>, the VLM translates the user's ambiguous query into a formal, verifiable task constraint.
+            (2) Acting as a <strong>task solver</strong>, the VLM generates and executes tool calls strictly within the deterministic bounds defined by the constraint.
           </p>
           <p>
-            1. Acting as a <strong>semantic analyst</strong>, the VLM translates the user's ambiguous query into a formal, verifiable task constraint, which defines the reference frame and objective.<br>
-            2. Acting as a <strong>task solver</strong>, the VLM generates and executes tool calls strictly within the deterministic bounds defined by the constraint.
-          </p>
-          <p>
-            This geometrically-constrained reasoning strategy successfully resolves the semantic-to-geometric gap, yielding a robust and verifiable reasoning pathway. 
             Comprehensive experiments demonstrate that GCA achieves SOTA performance on multiple spatial reasoning benchmarks, surpassing existing methods by ~27%.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Methodology</h2>
-        <div class="content has-text-justified">
-          <p>
-            The core of GCA is the introduction of a <strong>Formal Task Constraint (C<sub>task</sub>)</strong> that serves as a deterministic bridge between semantics and geometry.
-          </p>
-          <img src="./static/images/architecture.jpg" alt="Overall Paradigm of GCA" style="width:100%; height:auto;">
-          <p class="is-size-6">
-            <strong>Figure 2. Overall Paradigm of GCA.</strong> Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strategy.
-            The VLM first translates the ambiguous query into an explicit <em>C<sub>task</sub></em>, establishing a non-negotiable reference frame (C<sub>R</sub>) and objective (C<sub>O</sub>). 
-            Strictly constrained by <em>C<sub>task</sub></em>, the VLM then orchestrates a toolbox to perform deterministic geometric computation.
           </p>
         </div>
       </div>
@@ -227,84 +187,112 @@
   </div>
 </section>
 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        
-        <div class="item">
-          <div class="has-text-centered">
-             <img src="./static/images/case_study_1.jpg" width="80%">
-             <p>Unique object counting across multiple views.</p>
-          </div>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Methodology: The GCA Paradigm</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <img src="./static/images/pipeline.jpg" class="box-shadow" style="width: 100%; border-radius: 10px; margin-bottom: 1rem;" alt="GCA Architecture">
+        <div class="content has-text-justified caption">
+            <p>
+                <strong>Figure 2. Overview of Geometrically-Constrained Agent (GCA).</strong> 
+                Given a spatial reasoning query, GCA leverages a formal task constraint (<strong>C<sub>task</sub></strong>) to guide the process.
+                <br><strong>Stage 1: Task Formalization.</strong> The VLM translates the query into C<sub>task</sub>, establishing a Reference Frame Constraint (C<sub>R</sub>) and an Objective Constraint (C<sub>O</sub>).
+                <br><strong>Stage 2: Geometric Computation.</strong> Strictly constrained by C<sub>task</sub>, the VLM orchestrates a toolbox (detection, segmentation, orientation, 3D reconstruction) to perform deterministic computation and derive the final answer.
+            </p>
         </div>
-
-        <div class="item">
-           <div class="has-text-centered">
-             <img src="./static/images/case_study_2.jpg" width="80%">
-             <p>Direction-based reference frame reasoning.</p>
-          </div>
-        </div>
-
-        <div class="item">
-           <div class="has-text-centered">
-             <img src="./static/images/case_study_3.jpg" width="80%">
-             <p>Object-based reference frame reasoning.</p>
-          </div>
-        </div>
-
-         <div class="item">
-          <div class="has-text-centered">
-            <img src="./static/images/case_study_4.jpg" width="80%">
-            <p>Camera rotation analysis.</p>
-         </div>
-       </div>
-
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Qualitative Results & Case Studies</h2>
+    <p class="has-text-centered" style="margin-bottom: 2rem;">
+      GCA effectively handles diverse spatial reasoning tasks by strictly adhering to the generated constraints.
+    </p>
+    
+    <div class="results-grid">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="./static/images/case_1.jpg" alt="Case Study 1">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content is-small">
+            <strong>Case #1: Unique Object Counting.</strong> GCA resolves multi-view ambiguity by unifying detection in a single 3D reference frame.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="./static/images/case_2.jpg" alt="Case Study 2">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content is-small">
+            <strong>Case #2: Direction-based Frame.</strong> Handling relative directions (e.g., "North") by anchoring them to inter-object vectors.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="./static/images/case_3.jpg" alt="Case Study 3">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content is-small">
+            <strong>Case #3: Object-based Frame.</strong> Determining "front-right" relative to a specific object (sofa) rather than the camera.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="./static/images/case_4.jpg" alt="Case Study 4">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content is-small">
+            <strong>Case #4: Camera Rotation.</strong> Analyzing purely geometric camera transformations through extrinsic matrix computation.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="has-text-centered" style="margin-top: 2rem;">
+        <p class="is-size-6"><em>See the paper for more extensive qualitative analysis on movement analysis and metric-scale estimation.</em></p>
+    </div>
+
   </div>
 </section>
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{chen2025gca,
+    <h2 class="title is-3 section-title">BibTeX</h2>
+    <pre><code>@article{chen2026gca,
   title     = {Geometrically-Constrained Agent for Spatial Reasoning},
   author    = {Chen, Zeren and Lu, Xiaoya and Zheng, Zhijie and Li, Pengrui and He, Lehan and Zhou, Yijin and Shao, Jing and Zhuang, Bohan and Sheng, Lu},
   journal   = {arXiv preprint},
-  year      = {2025},
+  year      = {2026},
 }</code></pre>
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="#">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="#" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Template borrowed from <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
-          </p>
-        </div>
-      </div>
+      <p>
+        Website template adapted from <a href="https://rekep-robot.github.io/">ReKep</a> and <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+      </p>
     </div>
   </div>
 </footer>
